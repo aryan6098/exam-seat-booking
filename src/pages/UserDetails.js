@@ -13,7 +13,7 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import img from "../assets/img.png"
+import img from "../assets/img.png";
 const UserDetails = () => {
   // Store form data in state
   const [formData, setFormData] = useState({
@@ -23,8 +23,7 @@ const UserDetails = () => {
   });
 
   // Fetch data by ID using a lazy query
-  const [getExamDataById, { data, isLoading, isError, error }] =
-    useLazyGetExamDataByIdQuery();
+  const [getExamDataById, { data }] = useLazyGetExamDataByIdQuery();
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -32,16 +31,8 @@ const UserDetails = () => {
     getExamDataById(id);
   }, [getExamDataById, id]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
-
   const onChangeHandler = (e) => {
-     // Update form data when input values change
+    // Update form data when input values change
     setFormData((formData) => ({
       ...formData,
       [e.target.name]: e.target.value,
@@ -52,7 +43,7 @@ const UserDetails = () => {
     e.preventDefault();
     // Store form data in local storage
     localStorage.setItem("UserData", JSON.stringify(formData));
-     // Navigate to the seat screen
+    // Navigate to the seat screen
     navigate("/seat-screen");
   };
 

@@ -38,9 +38,9 @@ const Dashboard = () => {
                   </Col>
                   <Col md={8} className="px-4 py-4">
                     <CardBody>
-                      <CardTitle className="font-bold">{data?.title}</CardTitle>
-                      <CardText className="mt-2">{data?.year}</CardText>
-                      <CardText className="mt-2">{data?.detail1}</CardText>
+                      <CardTitle className="font-bold">{data?.title || "title"}</CardTitle>
+                      <CardText className="mt-2">{data?.year || "Year"}</CardText>
+                      <CardText className="mt-2">{data?.detail1 || "detail1"}</CardText>
                     </CardBody>
                   </Col>
                 </Row>
