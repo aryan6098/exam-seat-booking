@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .nav {
+  background-color: white;
+} */
+
+.bg-gray {
+  background-color: #D9D9D9;
+}
+.leaflet-container {
+  width: 100wh;
+  height: 75vh;
+}
