@@ -35,7 +35,7 @@ const Layout = (props) => {
           {/* Sidebar menu items */}
           <Nav className="mt-4">
             <NavItem className="text-center">
-              <h5 className="nav-title mt-3">Exam Seat Booking</h5>
+              <Link to="/" className="nav-title mt-3">Exam Seat Booking</Link>
             </NavItem>
             {MenuName &&
               MenuName.map((data, index) => {
