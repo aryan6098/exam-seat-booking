@@ -11,7 +11,7 @@ const SeatScreen = () => {
     JSON.parse(localStorage.getItem("SelectedSeats")) || [];
 
   // Check if userData exists before destructuring properties
-  const { name, age, gender } = userData || {};
+  const {  age, gender } = userData || {};
 
   // State for selected seats
   const [selectedSeats, setSelectedSeats] = useState({});
