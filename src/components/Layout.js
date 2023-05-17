@@ -16,9 +16,9 @@ const Layout = (props) => {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex justify-between items-center nav w-full ">
+      <div className="flex justify-between bg-gray-400 items-center nav w-full ">
         <Button
-          className="text-white hover:text-gray-200 focus:text-gray-200 lg:hidden px-2 py-3"
+          className="fw-bold text-white hover:text-gray-200 focus:text-gray-200 lg:hidden px-2 py-3"
           aria-label="Toggle menu"
           onClick={() => setShowSidebar(!showSidebar)}
         >
