@@ -6,8 +6,8 @@ import { Button, Nav, NavItem } from "reactstrap";
 // Array defining the menu items and their respective paths
 const MenuName = [
   { title: "Home", pathName: "/" },
-  { title: "Profile", pathName: "/user-details/id" },
-  { title: "Settings", pathName: "" },
+  { title: "Profile", pathName: "/user-details/" },
+  { title: "Settings", pathName: "/seat-screen" },
 ];
 
 const Layout = (props) => {

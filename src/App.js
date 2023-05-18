@@ -12,7 +12,7 @@ import Layout from "./components/Layout";
 
 const routes = [
   { path: "/", component: <Dashboard />},
-  { path: "/user-details/:id", component: <UserDetails /> },
+  { path: "/user-details/", component: <UserDetails /> },
   { path: "/seat-screen", component: <SeatScreen />},
 
 ];

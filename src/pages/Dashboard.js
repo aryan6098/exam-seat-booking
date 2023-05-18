@@ -27,7 +27,7 @@ const Dashboard = () => {
         <Row className="mt-10 px-10">
           <Col lg={10}>
             <Card className="bg-gray-200">
-              <Link to={`/user-details/${data?.id}`}>
+              <Link to={"/user-details/"}>
                 <Row className="flex">
                   <Col md={4} className="p-4">
                     <CardImg

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useLazyGetExamDataByIdQuery } from "../store/services/examDataApi";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useGetExamDataQuery } from "../store/services/examDataApi";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -22,14 +22,9 @@ const UserDetails = () => {
     gender: "",
   });
 
-  // Fetch data by ID using a lazy query
-  const [getExamDataById, { data }] = useLazyGetExamDataByIdQuery();
+  // Query the  data using the useGetExamDataQuery hook
+  const { data, isLoading } = useGetExamDataQuery();
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {
-    getExamDataById(id);
-  }, [getExamDataById, id]);
 
   const onChangeHandler = (e) => {
     // Update form data when input values change
@@ -52,20 +47,34 @@ const UserDetails = () => {
       <Row>
         <Col lg="12">
           <Card>
-            <div className="position-relative">
-              <img
-                src={data?.image || img}
-                className="card-img-top w-100"
-                alt="..."
-                style={{ maxHeight: "300px", width: "100%" }}
-              />
-            </div>
+            {isLoading ? (
+              <h5>Loading...</h5>
+            ) : (
+              <div className="position-relative">
+                <img
+                  src={data?.image || img}
+                  className="card-img-top w-100"
+                  alt="..."
+                  style={{ maxHeight: "300px", width: "100%" }}
+                />
+              </div>
+            )}
+
             <CardBody className="ml-5 mt-4 ">
-              <CardTitle className="font-bold mb-1">{data?.title}</CardTitle>
-              <CardText className="mb-1">{data?.year}</CardText>
-              <CardText className="mb-1">{data?.detail1}</CardText>
-              <CardText className="mb-1">{data?.detail2}</CardText>
-              <CardText className="mb-1">{data?.detail3}</CardText>
+              {isLoading ? (
+                <h5>Loading...</h5>
+              ) : (
+                <>
+                  {" "}
+                  <CardTitle className="font-bold mb-1">
+                    {data?.title}
+                  </CardTitle>
+                  <CardText className="mb-1">{data?.year}</CardText>
+                  <CardText className="mb-1">{data?.detail1}</CardText>
+                  <CardText className="mb-1">{data?.detail2}</CardText>
+                  <CardText className="mb-1">{data?.detail3}</CardText>{" "}
+                </>
+              )}
               <Form className="mt-4 absolute" onSubmit={submitHandler}>
                 <Row>
                   <Col lg="6">
