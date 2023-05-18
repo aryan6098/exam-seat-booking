@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./pages/Dashboard";
 import UserDetails from "./pages/UserDetails";
 import SeatScreen from "./pages/SeatScreen";
@@ -20,8 +18,6 @@ const routes = [
 function App() {
   return (
     <React.Fragment>
-       {/* Container for displaying toast notifications */}
-      <ToastContainer />
       {/* Define the routes */}
       <Routes>
         {routes.map((route, idx) => (
